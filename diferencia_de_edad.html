@@ -1,0 +1,27 @@
+<meta charset="UTF-8">
+
+<script>
+	
+	function saltarLinea() {
+
+		document.write("<br>");
+
+	}
+	function imprimir(texto) {
+
+		document.write(texto);
+		saltarLinea();
+
+	}
+
+	var miEdad = 27 ;
+	var edadHermano = 21 ;
+	var difernciaEdad= miEdad - edadHermano;
+
+	imprimir("<h1>Nuestra diferencia de edad es...</h1>");
+	imprimir("Mi edad es: " +miEdad+ " años");
+	imprimir("La edad de mi hermano es: " +edadHermano+ " años");
+	saltarLinea();
+	imprimir("<h4>-La diferencia entre mi edad y la de mi hermano es: " +difernciaEdad+ " años.</h4>");
+
+</script>
