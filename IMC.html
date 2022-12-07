@@ -1,0 +1,39 @@
+<meta charset="UTF-8">
+
+<h1>Programa calculo IMC</h1>
+
+<script>
+	
+	function saltarLinea() {
+
+		document.write("<br><br><br>");
+	}
+
+	function imprimir(texto) {
+
+		document.write(texto);
+		saltarLinea();
+
+	}
+
+	function calcularIMC(peso,altura,nombre) {
+
+		imc = peso/(altura*altura);
+		return (imc);
+	}
+
+	var imcJonathan = calcularIMC(80,1.73);
+	var imcFelipe = calcularIMC(75,1.73);
+	var imcGabriela = calcularIMC(65,1.68); 
+	var imcLuisa = calcularIMC(55,1.60);
+
+
+	imprimir("El IMC de Jonathan es: " + imcJonathan);
+	imprimir("El IMC de Felipe es: " + imcFelipe);
+	imprimir("El promedio del IMC calculado de Jonathan y Felipe es: " + (imcJonathan+imcFelipe)/2) ;
+
+	imprimir("El IMC de Gabriela es: " + imcGabriela);
+	imprimir("El IMC de Luisa es: " + imcLuisa);
+	imprimir("El promedio del IMC calculado de Gabriela y Luisa es: " + (imcGabriela+imcLuisa)/2) ;
+
+</script>
