@@ -31,5 +31,30 @@
 
 		imcCalculado = calcularIMC(pesoInformado,alturaInformado);
 		imprimir("El imc calculado es: " + imcCalculado);
+		document.write("<hr>");
+
+		if(imcCalculado < 18.5){
+
+			imprimir("<h3>IMC Por debajo de lo recomendado</h3>");
+
+		}
+		if(imcCalculado >= 30){
+
+			imprimir("<h3>IMC Considerado como obesidad</h3>");
+			
+		}
+		if(imcCalculado >= 18.5 ){
+			if (imcCalculado < 25){
+
+				imprimir("<h3>IMC Dentro del rango normal</h3>");
+			}
+		}
+			
+		if(imcCalculado >= 25 ){
+			if (imcCalculado < 30){
+
+				imprimir("<h3>IMC Considerado como sobre peso</h3>" );
+			}
+		}
 
 </script>

@@ -1,0 +1,34 @@
+<meta charset="UTF-8">
+
+<h1>¿Puedes conducir?</h1>
+
+<script>
+    function saltarLinea() {
+
+        document.write("<br>");
+    
+    }
+
+    function imprimir(frase) {
+
+        document.write(frase);
+        saltarLinea();
+    
+    }
+
+    var nombre = prompt("¿Cuál es tu nombre?")
+    var edad = parseInt(prompt("¿Cuál es tu edad?"));
+    var tieneLicencia = prompt("¿Tienes licencia de conducir? Responde S o N");
+
+    if((edad >= 18) && (tieneLicencia == "S")){
+        
+        imprimir("<h3>"+ nombre + "</h3>" + "<h3>Tienes la edad suficiente para conducir y licencia vigente!</h3>");
+
+    }
+
+   else {
+
+            imprimir("<h3>" + nombre + "</h3>" + "<h3>No puedes conducir</h3>" + "<br>Tienes que esperar a ser mayor de edad.</br> <br>O tener licencia de conducir.</br>");
+    }
+
+</script>
