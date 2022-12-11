@@ -23,26 +23,47 @@
     }
 
     var numeroPensado = sorteo(10);
-    var numeroLanzado = parseInt(prompt("Ingrese un número de 0-10"));
+    var intentos = 3;
+    var contador = 1;
 
-    if(numeroPensado == numeroLanzado){
+    while(contador <= intentos){
 
-        imprimir("<h4>Usted acertó!</h4>");
+        var numeroLanzado = parseInt(prompt("Ingrese un número de 0-10")); 
+        if(numeroPensado == numeroLanzado){
+
+        alert("Usted acertó!, en el intento " + contador + " el número pensado era " + numeroPensado);
+        break;
 
     }
      else {
 
-        imprimir("Usted falló, el número pensado era " + numeroPensado + "<h4>Intentalo de nuevo!</h4><hr>");
+        alert("Usted falló, Intentalo de nuevo!");
 
     }
 
-    if(numeroLanzado < numeroPensado){
+    contador++;
 
-         imprimir("El número que ingresaste " + numeroLanzado + " es menor al número pensado por el programa");
-    }
-    else {
+}
+if(numeroPensado == numeroLanzado){
 
-        imprimir("El número que ingresaste " + numeroLanzado + " es mayor al número pensado por el programa");
+        imprimir("Usted acertó!, en el intento " + intentos + " el número pensado era " + numeroPensado);
+
     }
+     else {
+
+        imprimir("Usted falló, el número pensado era " + numeroPensado + " Intentalo de nuevo!");
+
+    }
+
+    imprimir("El juego termino");
+    //if(numeroLanzado < numeroPensado){
+
+      //   imprimir("El número que ingresaste " + numeroLanzado + " es menor al número pensado por el programa");
+    //}
+    //else {
+
+      //  imprimir("El número que ingresaste " + numeroLanzado + " es mayor al número pensado por el programa");
+    //}
+
  
 </script>
