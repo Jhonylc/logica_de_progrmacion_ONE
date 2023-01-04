@@ -1,0 +1,116 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var pantalla = document.querySelector('canvas');
+    var pincel = pantalla.getContext('2d');
+
+    pincel.fillStyle = 'grey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    function dibujarPaleta(x,y,color){
+
+        pincel.fillStyle = color;
+        pincel.fillRect(x,y,50,50);
+        
+    }
+
+    for (var i = 0; i < 400; i = i+50) {
+
+        dibujarPaleta(0,0,"red");
+        dibujarPaleta(0,50,"green");
+        dibujarPaleta(0,100,"blue");
+        dibujarPaleta(0,150,"white");
+        dibujarPaleta(0,200,"brown");
+        dibujarPaleta(0,250,"yellow");
+        dibujarPaleta(0,300,"black");
+    }
+
+    var puedoDibujar = false;
+    var color;
+
+    function dibujarCirculo(evento) {
+
+        if(puedoDibujar) {
+            var x = evento.pageX - pantalla.offsetLeft;
+            var y = evento.pageY - pantalla.offsetTop;
+
+            areaPaleta = false;
+
+            if ((x >= 0) && (x <= 50) && (y <= 350) && (y >= 0)){
+
+                areaPaleta = false;
+
+            }
+
+            else if(areaPaleta = true){
+
+            pincel.fillStyle = color;
+            pincel.beginPath();
+            pincel.arc(x, y, 5, 0, 2 * 3.14);
+            pincel.fill();
+
+            }
+        }
+    }
+
+    function cambiarColor(evento){
+
+        var x = evento.pageX - pantalla.offsetLeft;
+        var y = evento.pageY - pantalla.offsetTop;
+
+        if ((x < 50) && (x > 0) && (y < 50) && (y > 0)){
+
+            color = "red";
+
+        }
+        else if((x < 50) && (x > 0) && (y < 100) && (y > 50)){
+
+            color = "green";
+
+        }
+        else if((x < 50) && (x > 0) && (y < 150) && (y > 50)){
+
+            color = "blue";
+            
+        }
+        else if((x < 50) && (x > 0) && (y < 200) && (y > 50)){
+
+            color = "white";
+
+        }
+        else if((x < 50) && (x > 0) && (y < 250) && (y > 50)){
+
+            color = "brown";
+            
+        }
+        else if((x < 50) && (x > 0) && (y < 300) && (y > 50)){
+
+            color = "yellow";
+ 
+        }
+        else if((x < 50) && (x > 0) && (y < 350) && (y > 50)){
+
+            color = "black";
+        }
+    }
+
+    pantalla.onclick = cambiarColor;
+    
+    pantalla.onmousemove = dibujarCirculo;
+
+    function habilitarDibujar() {
+
+        puedoDibujar = true;
+    }
+
+    function deshabilitarDibujar() {
+
+        puedoDibujar = false;
+    }
+
+    pantalla.onmousedown = habilitarDibujar;
+
+    pantalla.onmouseup = deshabilitarDibujar;
+
+</script>

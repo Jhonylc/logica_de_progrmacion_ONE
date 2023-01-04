@@ -1,0 +1,64 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+	var pantalla = document.querySelector("canvas");
+	var pincel = pantalla.getContext("2d");
+	pincel.fillStyle = "lightgrey";
+	pincel.fillRect(0,0,600,400);
+
+	var radio = 10;
+	var centroX;
+	var centroY;
+
+	function crearCirculo(x,y,radio,color){
+		pincel.fillStyle = color;
+		pincel.beginPath();
+		pincel.arc(x,y,radio,0,2*Math.PI);
+		pincel.fill();
+	}
+
+	function limpiarPantalla(){
+
+		pincel.clearRect(0,0,600,400);
+
+	}
+
+	function moverObjetivo(n){
+
+		return Math.floor(Math.random()*n);
+
+	}
+
+	function objetivo() {
+		crearCirculo(centroX,centroY,radio + 20,"red");
+		crearCirculo(centroX,centroY,radio + 10,"white");
+		crearCirculo(centroX,centroY,radio,"red");
+	}
+
+	function actualizarPantalla(){
+
+		limpiarPantalla();
+		centroX = moverObjetivo(600);
+		centroY = moverObjetivo(400);
+		objetivo();
+		x++;
+
+	}
+
+	setInterval(actualizarPantalla,1500);
+
+	function tiro(evento){
+
+		var x = evento.pageX - pantalla.offsetLeft;
+		var y = evento.pageY - pantalla.offsetTop;
+
+		if ((x < centroX + radio)&&(x > centroX - radio)&&(y < centroY + radio)&&(y > centroY - radio)){
+
+			alert("Tiro al blanco");
+		}
+		else alert("Fallaste");
+	}
+
+	pantalla.onclick = tiro;
+
+</script>
